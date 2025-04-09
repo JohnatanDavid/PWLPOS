@@ -9,14 +9,14 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         Schema::create('m_kategori', function (Blueprint $table) {
-            $table->id('kategori_id');  // Primary Key
+            $table->id('kategori_id');  // Menentukan Primary Key
             $table->string('kategori_kode', 10)->unique();
             $table->string('kategori_nama', 100);
-            $table->timestamps();  // Menambahkan kolom created_at dan updated_at
-        });
+            $table->timestamps();
+        });        
     }
 
     /**
