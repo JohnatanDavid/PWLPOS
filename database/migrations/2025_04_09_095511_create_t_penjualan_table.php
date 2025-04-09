@@ -9,17 +9,18 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up() : void
+    public function up(): void
     {
         Schema::create('t_penjualan', function (Blueprint $table) {
             $table->id('penjualan_id'); // Primary Key
-            $table->unsignedBigInteger('user_id')->index;
+            $table->unsignedBigInteger('user_id')->index();
             $table->string('pembeli', 50);
             $table->string('penjualan_kode', 20);
             $table->datetime('penjualan_tanggal');
             $table->timestamps();
 
             $table->foreign('user_id')->references('user_id')->on('m_user');
+
         });
     }
 

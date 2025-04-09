@@ -11,7 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('t_stok', function (Blueprint $table) {
+        Schema::create('m_barang', function (Blueprint $table) {
+            
             $table->id('barang_id'); // Primary Key
             $table->unsignedBigInteger('kategori_id')->index(); // Foreign Key ke m_kategori
             $table->string('barang_kode', 10)->unique();
@@ -22,6 +23,7 @@ return new class extends Migration
 
             // Foreign Key Constraint
             $table->foreign('kategori_id')->references('kategori_id')->on('m_kategori');
+
         });
     }
 
@@ -30,6 +32,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('m_barang'); // Baru drop table-nya
+        Schema::table('m_barang', function (Blueprint $table) {
+            //
+        });
     }
 };
