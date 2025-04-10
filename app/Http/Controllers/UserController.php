@@ -18,9 +18,7 @@ class UserController extends Controller {
             UserModel::create($data);
     
             // Coba akses model UserModel
-            $user = UserModel::findOr(20, ['username', 'nama'], function () {
-                abort(404);
-            }); 
+            $user = UserModel::findOrFail(1); 
             return view('user', ['data' => $user]);
     
     }
